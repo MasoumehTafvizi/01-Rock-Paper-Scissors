@@ -69,6 +69,16 @@ class TestDetermineWinner(unittest.TestCase):
         result = determine_winner("rock", "paper")
         self.assertEqual(result, "lose")
 
+    def test_invalid_player_choice_raises_error(self):
+        """Test that invalid player choice raises ValueError."""
+        with self.assertRaises(ValueError):
+            determine_winner("invalid", "rock")
+
+    def test_invalid_computer_choice_raises_error(self):
+        """Test that invalid computer choice raises ValueError."""
+        with self.assertRaises(ValueError):
+            determine_winner("rock", "invalid")
+
 
 class TestValidChoices(unittest.TestCase):
     """Tests for VALID_CHOICES constant."""

@@ -26,7 +26,15 @@ def determine_winner(player_choice, computer_choice):
 
     Returns:
         A string indicating the result: "win", "lose", or "tie"
+
+    Raises:
+        ValueError: If either choice is not a valid option
     """
+    if player_choice not in VALID_CHOICES:
+        raise ValueError(f"Invalid player choice: {player_choice}")
+    if computer_choice not in VALID_CHOICES:
+        raise ValueError(f"Invalid computer choice: {computer_choice}")
+
     if player_choice == computer_choice:
         return "tie"
 
